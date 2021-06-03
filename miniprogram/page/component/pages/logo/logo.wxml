@@ -1,0 +1,65 @@
+<import src="../../../common/head.wxml" />
+<import src="../../../common/foot.wxml" />
+
+<view class="container">
+  <template is="head" data="{{title: '选择一张图片'}}"/>
+
+  <view class="page-body">
+    <form>
+      <view class="page-section">
+
+        <view class="weui-cells weui-cells_after-title">
+          <view class="weui-cell weui-cell_input">
+            <view class="weui-cell__hd">
+              <view class="weui-label">图片来源</view>
+            </view>
+            <view class="weui-cell__bd">
+              <picker range="{{sourceType}}" bindchange="sourceTypeChange" value="{{sourceTypeIndex}}" mode="selector">
+                <view class="weui-input">{{sourceType[sourceTypeIndex]}}</view>
+              </picker>
+            </view>
+          </view>
+
+          <view class="weui-cell weui-cell_input">
+            <view class="weui-cell__hd">
+              <view class="weui-label">图片质量</view>
+            </view>
+            <view class="weui-cell__bd">
+              <picker range="{{sizeType}}" bindchange="sizeTypeChange" value="{{sizeTypeIndex}}" mode="selector">
+                <view class="weui-input">{{sizeType[sizeTypeIndex]}}</view>
+              </picker>
+            </view>
+          </view>
+        </view>
+
+
+        <view class="weui-cells">
+          <view class="weui-cell">
+            <view class="weui-cell__bd">
+              <view class="weui-uploader">
+                <view class="weui-uploader__bd">
+                  <view class="weui-uploader__input-box">
+                    <view wx:if="!{{imgPath}}" class="weui-uploader__input" bindtap="chooseImage"></view>
+                  </view>
+                  <view class="page-section page-section-gap">
+                    <view class="page-section-title">上传一张图片</view>
+                    <view class="auto-height-image">
+                      <image class="image" src="{{imgPath}}" mode="aspectFit"/>
+                    </view>
+                  </view>
+                </view>
+              </view>
+            </view>
+          </view>
+        </view>
+        
+        <view class="button-sp-area">
+          <button type="primary" plain="true" bindtap="detectImg">上传并检测</button>
+        </view>
+        
+      </view>
+    </form>
+  </view>
+  
+  <template is="foot" />
+</view>
