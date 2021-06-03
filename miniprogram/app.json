@@ -1,7 +1,7 @@
 {
   "pages": [
-    "page/component/pages/general/general",
     "page/component/index",
+    "page/component/pages/general/general",
     "page/component/pages/logo/logo"
   ],
   "subpackages": [
