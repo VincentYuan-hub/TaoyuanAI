@@ -79,7 +79,44 @@ Page({
    * 上传图片并检测
    */
   detectImg(e) {
-    const that = this
+  //   const that = this
+  //   var imgPath = this.data.imgPath
+  //   var access_token = this.data.access_token
+  //   wx.getFileSystemManager().readFile({
+  //     filePath: imgPath,
+  //     encoding: 'base64',
+  //     success(ans) {
+  //       wx.showLoading({
+  //         title: '识别中'
+  //       })
+  //       wx.request({
+  //         url: 'https://aip.baidubce.com/rest/2.0/image-classify/v2/advanced_general?access_token=' + access_token,
+  //         method: 'POST',
+  //         header: {
+  //           'Content-Type': 'application/x-www-form-urlencoded'
+  //         },
+  //         data: {
+  //           image: ans.data
+  //         },
+  //         success(_res) {
+  //           that.setData({detectResult:_res.data.result})
+  //           console.log('_res', _res)
+  //           wx.hideLoading();
+  //         },
+  //         fail(_res) {
+  //           wx.hideLoading();
+  //           wx.showToast({ 
+  //             icon: 'error',
+  //             title: '请求出错' + _res,
+  //           })
+  //           console.log('_res err', _res)
+  //         }
+  //       })
+  //     }
+  //   })
+  // }
+
+  const that = this
     var imgPath = this.data.imgPath
     var access_token = this.data.access_token
     wx.getFileSystemManager().readFile({
@@ -107,7 +144,7 @@ Page({
             wx.hideLoading();
             wx.showToast({ 
               icon: 'error',
-              title: '请求出错',
+              title: '请求出错' + _res,
             })
             console.log('_res err', _res)
           }
